@@ -66,6 +66,29 @@ Bu proje, 3 boyutlu uzayda bir 3B model oluşturarak çeşitli geometrik nesnele
 
 ## Projenin Çalıştırılması
 
+-   Clone the repository
+
+    ```bash
+    git clone
+    ```
+
+-   Create a virtual environment
+
+    ```bash
+    python -m venv venv
+    ```
+
+-   Activate the virtual environment
+
+    ```bash
+    source venv/bin/activate # this is for unix,windows: venv\Scripts\activate
+    ```
+
+-   Install the required packages
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 ---
 
 ## Projeye Ait Ekran Çıktıları
