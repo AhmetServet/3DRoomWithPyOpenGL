@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QListWidget
+from PyQt5.QtCore import Qt
 from ui_components import create_ui_components
 from opengl_widget import OpenGLWidget
 import random
@@ -43,12 +44,21 @@ class MainWindow(QMainWindow):
         left_btn.clicked.connect(lambda: self.opengl_widget.move_camera("left"))
         right_btn.clicked.connect(lambda: self.opengl_widget.move_camera("right"))
 
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_W:
+            self.opengl_widget.move_camera("up")
+        elif event.key() == Qt.Key_S:
+            self.opengl_widget.move_camera("down")
+        elif event.key() == Qt.Key_A:
+            self.opengl_widget.move_camera("left")
+        elif event.key() == Qt.Key_D:
+            self.opengl_widget.move_camera("right")
+        event.accept()
+
 
     def on_button1_click(self):
         print("Randomizing colors and positions")
-        for shape in self.opengl_widget.shapes:
-            shape.set_random_color()
-            self.randomize_position(shape)
+        self.opengl_widget.randomize_shapes()
         
         self.opengl_widget.updateGL()
 
