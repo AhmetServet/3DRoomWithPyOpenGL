@@ -9,7 +9,7 @@ class Shape:
         self.set_random_position()  # Set a random position
         self.set_random_color()     # Set a random color
         self.set_random_rotation()  # Set random rotation angles
-        self.scale = [0.4, 0.4, 0.4]      # scale factors for x, y, z
+        self.scale = [0.8, 0.8, 0.8]      # scale factors for x, y, z
 
     def set_color(self, r=None, g=None, b=None):
         """Set the color of the shape using RGB values (0.0 to 1.0)"""
@@ -28,7 +28,7 @@ class Shape:
     
     def set_random_position(self):
         """Set a random position for the shape"""
-        self.position = [random.uniform(-1, 1), random.uniform(-1, 1), random.uniform(-1, 1)]
+        self.position = [random.uniform(-2, 2), random.uniform(-2, 2), random.uniform(-2, 2)]
 
     def set_rotation(self, x, y, z):
         """Set the rotation angles of the shape"""

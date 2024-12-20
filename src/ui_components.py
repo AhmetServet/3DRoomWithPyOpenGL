@@ -11,8 +11,8 @@ def create_ui_components():
     controls_layout = QVBoxLayout()
     
     # Main buttons - make them smaller
-    button1 = QPushButton("Random")
-    button2 = QPushButton("Reset")
+    randomize_button = QPushButton("Random")
+    reset_button = QPushButton("Reset")
     
     # Camera controls in compact layout
     camera_group = QGroupBox("Camera")
@@ -22,10 +22,13 @@ def create_ui_components():
     down_btn = QPushButton("↓")
     left_btn = QPushButton("←")
     right_btn = QPushButton("→")
-
+    
+    # Zoom controls
+    zoom_in_btn = QPushButton("+")
+    zoom_out_btn = QPushButton("-")
     
     # Make buttons smaller
-    for btn in [up_btn, down_btn, left_btn, right_btn]:
+    for btn in [up_btn, down_btn, left_btn, right_btn, zoom_in_btn, zoom_out_btn]:
         btn.setMaximumWidth(40)
         btn.setMaximumHeight(40)
     
@@ -38,15 +41,22 @@ def create_ui_components():
     camera_layout.addLayout(center_row)
     camera_layout.addWidget(down_btn, alignment=Qt.AlignCenter)
     
+    # Arrange zoom buttons
+    zoom_row = QHBoxLayout()
+    zoom_row.addWidget(zoom_in_btn)
+    zoom_row.addWidget(zoom_out_btn)
+    
+    camera_layout.addLayout(zoom_row)
+    
     camera_group.setLayout(camera_layout)
     camera_group.setMinimumWidth(100)
     
     # Add all components to main layout
-    controls_layout.addWidget(button1)
-    controls_layout.addWidget(button2)
+    controls_layout.addWidget(randomize_button)
+    controls_layout.addWidget(reset_button)
     controls_layout.addWidget(camera_group)
     controls_layout.addStretch()
     
     controls_group.setLayout(controls_layout)
 
-    return button1, button2, None, controls_group, (up_btn, down_btn, left_btn, right_btn)
+    return randomize_button, reset_button, controls_group, (up_btn, down_btn, left_btn, right_btn, zoom_in_btn, zoom_out_btn)

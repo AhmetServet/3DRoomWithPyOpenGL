@@ -10,6 +10,7 @@ class OpenGLWidget(QGLWidget):
         super(OpenGLWidget, self).__init__(parent)
         self.shapes = [s.Cube(), s.Sphere(), s.Cylinder(), s.Pyramid()]
         self.camera = Camera()
+        self.room = s.Room(20)
 
     def initializeGL(self):
         glEnable(GL_DEPTH_TEST)
@@ -30,6 +31,9 @@ class OpenGLWidget(QGLWidget):
             0, 0, 0,
             0, 1, 0
         )
+
+        # Draw the room
+        self.room.draw()
         
         # Draw shapes
         for shape in self.shapes:
