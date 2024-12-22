@@ -1,6 +1,5 @@
 # src/ui_components.py
-from PyQt5.QtWidgets import (QPushButton, QSlider, QVBoxLayout, 
-                           QHBoxLayout, QWidget, QGroupBox)
+from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QPushButton, QHBoxLayout, QListWidget
 from PyQt5.QtCore import Qt
 
 def create_ui_components():
@@ -26,6 +25,9 @@ def create_ui_components():
     # Zoom controls
     zoom_in_btn = QPushButton("+")
     zoom_out_btn = QPushButton("-")
+
+    add_shape_btn = QPushButton("+")
+    remove_shape_btn = QPushButton("-")
     
     # Make buttons smaller
     for btn in [up_btn, down_btn, left_btn, right_btn, zoom_in_btn, zoom_out_btn]:
@@ -51,12 +53,41 @@ def create_ui_components():
     camera_group.setLayout(camera_layout)
     camera_group.setMinimumWidth(100)
     
+    # Add a list widget for shapes
+    shapes_list = QListWidget()
+    shapes_list.setMaximumWidth(120)
+    
+    # Create toggle buttons for each light
+    light_group = QGroupBox("Lights")
+    light_layout = QVBoxLayout()
+
+    ambient_light_btn = QPushButton("Ambient Light", checkable=True)
+    point_light_btn = QPushButton("Point Light", checkable=True)
+    area_light_btn = QPushButton("Area Light", checkable=True)
+    directional_light_btn = QPushButton("Directional Light", checkable=True)
+
+    # Add buttons to the layout
+    light_layout.addWidget(ambient_light_btn)
+    light_layout.addWidget(point_light_btn)
+    light_layout.addWidget(area_light_btn)
+    light_layout.addWidget(directional_light_btn)
+
+    light_group.setLayout(light_layout)
+    light_group.setMinimumWidth(100)
+
+
     # Add all components to main layout
     controls_layout.addWidget(randomize_button)
     controls_layout.addWidget(reset_button)
     controls_layout.addWidget(camera_group)
+    controls_layout.addWidget(light_group)
+
+    # controls_layout.addWidget(shapes_list)
+    # controls_layout.addWidget(add_shape_btn)
+    # controls_layout.addWidget(remove_shape_btn)
+
     controls_layout.addStretch()
     
     controls_group.setLayout(controls_layout)
 
-    return randomize_button, reset_button, controls_group, (up_btn, down_btn, left_btn, right_btn, zoom_in_btn, zoom_out_btn)
+    return randomize_button, reset_button, controls_group, light_group, [up_btn, down_btn, left_btn, right_btn, zoom_in_btn, zoom_out_btn], [ambient_light_btn, point_light_btn, area_light_btn, directional_light_btn], [shapes_list, add_shape_btn, remove_shape_btn]

@@ -4,11 +4,18 @@ from OpenGL.GLU import *
 from OpenGL.GLUT import *
 import shapes as s
 from camera import Camera
+import lightning as light
 
 class OpenGLWidget(QGLWidget):
     def __init__(self, parent=None):
         super(OpenGLWidget, self).__init__(parent)
         self.shapes = [s.Cube(), s.Sphere(), s.Cylinder(), s.Pyramid()]
+        self.lights = {
+            0: light.AmbientLight(GL_LIGHT0),
+            1: light.PointLight(GL_LIGHT1),
+            2: light.AreaLight(GL_LIGHT2),
+            3: light.DirectionalLight(GL_LIGHT3)
+        }
         self.camera = Camera()
         self.room = s.Room(20)
 
@@ -20,9 +27,22 @@ class OpenGLWidget(QGLWidget):
         gluPerspective(45.0, self.width() / self.height(), 0.1, 100)
         glMatrixMode(GL_MODELVIEW)
 
+
+    def initializeLighting(self):
+        glEnable(GL_LIGHTING)
+        glShadeModel(GL_SMOOTH)
+        glEnable(GL_NORMALIZE)
+        glEnable(GL_COLOR_MATERIAL)
+        
+
+
     def paintGL(self):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glLoadIdentity()
+
+        # Draw the lights
+        self.initializeLighting()
+        
         # Update camera position
         pos = self.camera.get_position()
         print(f"Camera position: {pos}")

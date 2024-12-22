@@ -3,7 +3,7 @@ from OpenGL.GL import *
 from OpenGL.GLUT import *
 
 class Room(Shape):
-    def __init__(self, room_size=20):
+    def __init__(self, room_size=30):
         super().__init__()
         self.name = "Room"
         self.set_position(0, 0, 0)

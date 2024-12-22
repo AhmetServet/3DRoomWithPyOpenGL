@@ -57,7 +57,7 @@ class Shape:
         
         # Draw the edges in black
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)
-        glLineWidth(0.5)
+        glLineWidth(0.01)
         glColor3f(0.0, 0.0, 0.0)
         self._draw()
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
