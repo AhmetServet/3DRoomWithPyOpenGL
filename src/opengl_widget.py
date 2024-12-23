@@ -40,9 +40,6 @@ class OpenGLWidget(QGLWidget):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glLoadIdentity()
 
-        # Draw the lights
-        self.initializeLighting()
-        
         # Update camera position
         pos = self.camera.get_position()
         print(f"Camera position: {pos}")
@@ -51,6 +48,9 @@ class OpenGLWidget(QGLWidget):
             0, 0, 0,
             0, 1, 0
         )
+        # Draw the lights
+        self.initializeLighting()
+        
 
         # Draw the room
         self.room.draw()
@@ -59,6 +59,7 @@ class OpenGLWidget(QGLWidget):
         for shape in self.shapes:
             print(f"Drawing shape: {shape}")
             shape.draw()
+        
 
     def move_camera(self, direction):
         self.camera.move(direction)
@@ -69,4 +70,11 @@ class OpenGLWidget(QGLWidget):
             shape.set_random_color()
             shape.set_random_position()
             shape.set_random_rotation()
+
+        for shape in self.shapes:
+            for other in self.shapes:
+                if shape != other and shape.check_collision(other):
+                    shape.set_random_position()
+                    shape.set_random_rotation()
+                    break
         self.update()

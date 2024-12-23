@@ -16,6 +16,9 @@ class Sphere(Shape):
     def _draw(self):
         """Draw the sphere using GLU quadrics"""
         gluSphere(self.quadric, self.radius, self.slices, self.stacks)
+    
+    def get_bounding_radius(self):
+        return self.radius + 1.0  # Add a small offset to the radius
 
     def __del__(self):
         """Clean up the quadric object when the sphere is deleted"""

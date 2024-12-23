@@ -1,5 +1,6 @@
 from OpenGL.GL import *
 from shapes.shape import Shape
+import math
 
 class Pyramid(Shape):
     def __init__(self, base_size=1.0, height=1.0):
@@ -44,6 +45,10 @@ class Pyramid(Shape):
         glVertex3f(-self.base_size, 0.0, -self.base_size)
 
         glEnd()
+
+    def get_bounding_radius(self):
+        # set a higher bounding radius to avoid clipping
+        return math.sqrt(3) * self.base_size / 2 + 1.0
 
     def __del__(self):
         """Clean up the quadric object when the pyramid is deleted"""

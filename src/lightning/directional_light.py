@@ -9,4 +9,4 @@ class DirectionalLight(Light):
     def enable(self):
         super().enable()
         glLightfv(self.light_id, GL_SPOT_DIRECTION, self.direction)
-        glLightf(self.light_id, GL_SPOT_CUTOFF, 180.0)  # Set the cutoff angle for the directional light
+        # glLightf(self.light_id, GL_SPOT_CUTOFF, 180.0)  # Set the cutoff angle for the directional light

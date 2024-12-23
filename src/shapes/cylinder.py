@@ -32,6 +32,9 @@ class Cylinder(Shape):
         gluDisk(self.quadric, 0, self.top_radius, self.slices, 1)
         glPopMatrix()
 
+    def get_bounding_radius(self):
+        return max(self.base_radius, self.top_radius)  + 1.0  # Add a small offset to the radius
+
     def __del__(self):
         """Clean up the quadric object when the cylinder is deleted"""
         if self.quadric:

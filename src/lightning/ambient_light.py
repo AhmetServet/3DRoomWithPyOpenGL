@@ -9,3 +9,8 @@ class AmbientLight(Light):
         glEnable(self.light_id)
         glLightModelfv(GL_LIGHT_MODEL_AMBIENT, self.ambient)
         self.enabled = True
+
+    def disable(self):
+        glDisable(self.light_id)
+        glLightModelfv(GL_LIGHT_MODEL_AMBIENT, (0.1, 0.1, 0.1, 1.0))
+        self.enabled = False
