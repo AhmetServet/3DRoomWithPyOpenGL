@@ -8,8 +8,11 @@ class Camera:
         self.radius = radius
         self.speed = speed
         self.zoom_speed = zoom_speed
+        self.can_move = True
 
     def move(self, direction):
+        if not self.can_move:
+            return
         if direction == "left":
             self.horizontal_angle += self.speed
         elif direction == "right":
@@ -36,3 +39,19 @@ class Camera:
 
     def get_position(self):
         return self.pos
+    
+    def set_position(self, pos):
+        self.pos = pos
+
+    def set_can_move(self, can_move):
+        self.can_move = can_move
+
+    def set_radius(self, radius):
+        self.radius = radius
+    
+    def reset_position(self):
+        self.radius = 8.0
+        self.pos = [0.0, 0.0, -self.radius]
+        self.horizontal_angle = -1.50
+        self.vertical_angle = 0.0
+        self.set_can_move(True)

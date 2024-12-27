@@ -3,7 +3,7 @@ from OpenGL.GLU import *
 from shapes.shape import Shape
 
 class Cylinder(Shape):
-    def __init__(self, base_radius=1.0, top_radius=1.0, height=2.0, slices=64, stacks=64):
+    def __init__(self, base_radius=1.0, top_radius=1.0, height=2.0, slices=256, stacks=256):
         """Initialize a cylinder with given base radius, top radius, height, slices, and stacks"""
         super().__init__()
         self.name = "Cylinder"

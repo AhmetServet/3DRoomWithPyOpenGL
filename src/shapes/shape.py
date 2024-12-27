@@ -11,7 +11,7 @@ class Shape:
         self.set_random_color()     # Set a random color
         self.set_random_rotation()  # Set random rotation angles
         self.scale = [1.0, 1.0, 1.0]      # scale factors for x, y, z
-        self.set_default_material() # Set default material properties
+        self.set_random_material() # Set random material properties
 
     def set_color(self, r=None, g=None, b=None):
         """Set the color of the shape using RGB values (0.0 to 1.0)"""
@@ -51,6 +51,13 @@ class Shape:
         self.material_specular = [1.0, 1.0, 1.0, 1.0]
         self.material_shininess = 50.0
 
+    def set_random_material(self):
+        """Set random material properties"""
+        self.material_ambient = [random.random(), random.random(), random.random(), 1.0]
+        self.material_diffuse = [random.random(), random.random(), random.random(), 1.0]
+        self.material_specular = [random.random(), random.random(), random.random(), 1.0]
+        self.material_shininess = random.uniform(0, 128)
+
     def set_material(self, ambient, diffuse, specular, shininess):
         """Set the material properties of the shape"""
         self.material_ambient = ambient
@@ -79,9 +86,10 @@ class Shape:
         
         # Draw the edges in black
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)
-        glLineWidth(0.01)
-        glColor3f(0.0, 0.0, 0.0)
-        self._draw()
+        if self.name in ["Pyramid", "Cube"]:
+            glLineWidth(0.01)
+            glColor3f(0.0, 0.0, 0.0)
+            self._draw()
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
         
         glPopMatrix()

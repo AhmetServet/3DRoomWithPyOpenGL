@@ -3,7 +3,7 @@ from OpenGL.GLU import *
 from shapes.shape import Shape
 
 class Sphere(Shape):
-    def __init__(self, radius=1.0, slices=64, stacks=64):
+    def __init__(self, radius=1.0, slices=256, stacks=256):
         """Initialize a sphere with given radius, slices, and stacks"""
         super().__init__()
         self.name = "Sphere"
