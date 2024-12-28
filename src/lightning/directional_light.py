@@ -7,7 +7,7 @@ class DirectionalLight(Light):
                  diffuse=(0.8, 0.8, 0.8, 1.0),
                  specular=(1.0, 1.0, 1.0, 1.0),
                  direction=(0.0, -1.0, 0.0)):  # Default direction pointing downwards
-        super().__init__(light_id, ambient, diffuse, specular, position=(0.0, 0.0, 1.0, 0.0))
+        super().__init__(light_id, ambient, diffuse, specular, position=(0.0, 10.0, 0.0, 0.0))
         self.direction = direction
 
     def enable(self):

@@ -14,8 +14,8 @@ class OpenGLWidget(QGLWidget):
         self.lights = {
             0: light.AmbientLight(GL_LIGHT0),
             1: light.PointLight(GL_LIGHT1),
-            2: light.AreaLight(GL_LIGHT2),
-            3: light.DirectionalLight(GL_LIGHT3)
+            2: light.AreaLight(GL_LIGHT3),
+            3: light.DirectionalLight(GL_LIGHT2)
         }
         self.camera = Camera()
         self.room = s.Room(40)
@@ -97,7 +97,7 @@ class OpenGLWidget(QGLWidget):
             self.preset1_shapes[3].set_position(10.1, -10.5, -9.31)
             self.preset1_shapes[3].set_scale(0.5, 0.5, 0.5)
             self.preset1_shapes[3].set_rotation(0.156, 0.0, 0.0)
-            self.preset1_shapes[3].set_color(1.0, 0.84, 0.0)  # Gold color
+            self.preset1_shapes[3].set_color(0.5, 0.0, 0.5)  # Purple color
             self.preset1_shapes[3].set_material(
                 ambient=(0.24725, 0.1995, 0.0745, 1.0),
                 diffuse=(0.75164, 0.60648, 0.22648, 1.0),

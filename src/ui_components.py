@@ -41,10 +41,11 @@ def create_light_controls():
     light_layout = QVBoxLayout()
 
     ambient_light_row = QHBoxLayout()
-    ambient_light_button = QPushButton("Ambient Light", checkable=True)
-    rgb_button = QPushButton("RGB", checkable=True)
+    ambient_light_button = QPushButton("Ambient L.", checkable=True)
+    rgb_button = QPushButton("R", checkable=True)
     ambient_light_row.addWidget(ambient_light_button)
     ambient_light_row.addWidget(rgb_button)
+    ambient_light_row.setSpacing(2)
 
     point_light_button = QPushButton("Point Light", checkable=True)
     area_light_button = QPushButton("Area Light", checkable=True)
