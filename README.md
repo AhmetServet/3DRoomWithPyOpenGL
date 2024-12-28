@@ -8,11 +8,11 @@ Bu proje, 3 boyutlu uzayda bir 3B model oluşturarak çeşitli geometrik nesnele
 
 ## Grup Bilgileri
 
-| Okul Numarası | Grup Üyeleri       | Görev Dağılımı                                             |
-| ------------- | ------------------ | ---------------------------------------------------------- |
-| 200030012     | Ahmet Servet Polat | Proje yönetimi, odanın oluşturulması                       |
-| -             | Kenan Koçoğlu      | Işık kaynaklarının oluşturulması, nesnelerin oluşturulması |
-| -             | Mehmet Enes Odabaş | Nesne kaplamaları ve aydınlatma modelinin oluşturulması    |
+| Grup Üyeleri       | Görev Dağılımı                                             |
+| ------------------ | ---------------------------------------------------------- |
+| Ahmet Servet Polat | Proje yönetimi, odanın oluşturulması                       |
+| Kenan Koçoğlu      | Işık kaynaklarının oluşturulması, nesnelerin oluşturulması |
+| Mehmet Enes Odabaş | Nesne kaplamaları ve aydınlatma modelinin oluşturulması    |
 
 ---
 
@@ -20,29 +20,29 @@ Bu proje, 3 boyutlu uzayda bir 3B model oluşturarak çeşitli geometrik nesnele
 
 ### Geometrik Nesneler
 
--   **Küre:** Merkezi odanın ortasına yerleştirilir. (Kırmızı)
--   **Küp:** Bir köşeye yerleştirilir. (Mavi)
--   **Piramit:** Çapraz köşeye konumlandırılır. (Yeşil)
--   **Silindir:** Diğer bir köşeye dik olarak yerleştirilir. (Sarı)
+-   Küp, küre, silindir ve piramit nesneleri kullanılmıştır.
+-   Nesneler, OpenGL kütüphanesi yardımıyla çizilmiştir.
+-   Nesnelerin boyutları, konumları, renkleri ve materyalleri rastgele olarak belirlenmektedir.
+-   Preset0 ve Preset1 olmak üzere iki farklı nesne seti bulunmaktadır.
 
 ### Parlak ve Mat Yüzeyler
 
--   **Parlak Yüzeyler:** Küre ve küp
--   **Mat Yüzeyler:** Piramit ve silindir
--   Malzeme özellikleri (ambient, diffuse, specular) doğru şekilde ayarlanarak kontrast sağlanır.
+-   Her nesne için parlak ve mat yüzeyler kullanılmıştır.
+-   Parlak yüzeyler için yansıma katsayısı yüksek, mat yüzeyler için yansıma katsayısı düşüktür.
 
 ### Kapalı Oda
 
--   Dikdörtgen prizma şeklinde tasarlanmıştır.
--   Duvarlar, taban ve tavan basit düzlemlerle oluşturulmuştur.
--   Kamera, odanın köşelerinden birine yerleştirilerek sahnedeki tüm nesneler görüntülenir.
+-   Küp şeklinde tasarlanmıştır.
+-   Duvarlar, taban ve tavan küpün yüzeylerine yüzeyleridir.
+-   Kamera odanın içinde hareket edebilir.
 
 ### Işık Kaynakları
 
--   **Ortam Işığı:** Tüm sahneyi düşük seviyede aydınlatır.
--   **Alan Işığı:** Bir duvar boyunca yayılan ışık sağlar.
--   **Nokta Işığı:** Kürenin üzerine odaklanmıştır.
--   (Opsiyonel) **Yönlü Işık:** Genel aydınlatma sağlar.
+-   **Ortam Işığı (Ambient Light):** Tüm sahneyi düşük seviyede aydınlatır.
+-   **Nokta Işığı (Point Light):** Odanın ortasında bir noktadan yayılan ışık sağlar.
+-   **Alan Işığı (Area Light):** Odanın bir köşesinden yayılan ve alanı aydınlatan ışık sağlar.
+-   **Yönlü Işık (Directional Light):** Odanın bir duvarından yayılan spot ışık sağlar.
+-   **RGB Modu:** Ortam ışığının rengi bir diziye göre değişir.
 
 ### Aydınlatma Modeli
 
@@ -59,38 +59,63 @@ Bu proje, 3 boyutlu uzayda bir 3B model oluşturarak çeşitli geometrik nesnele
 -   **Programlama Dili:** Python
 -   **Kütüphaneler:** PyOpenGL
 -   **Araçlar:**
-    -   Docker (Deployment için)
     -   venv (Sanal ortam yönetimi için)
 
 ---
 
 ## Projenin Çalıştırılması
 
--   Clone the repository
+1. **Clone the repository**
 
     ```bash
-    git clone
+    git clone https://github.com/AhmetServet/3DRoomWithPyOpenGL.git
     ```
 
--   Create a virtual environment
+2. **Create a virtual environment**
 
     ```bash
     python -m venv venv
     ```
 
--   Activate the virtual environment
+3. **Activate the virtual environment**
 
     ```bash
-    source venv/bin/activate # this is for unix,windows: venv\Scripts\activate
+    source venv/bin/activate # For Unix
+    venv\Scripts\activate # For Windows
     ```
 
--   Install the required packages
+4. **Install the required packages**
+
     ```bash
     pip install -r requirements.txt
+    ```
+
+5. **Run the project**
+
+    ```bash
+    python main.py
     ```
 
 ---
 
 ## Projeye Ait Ekran Çıktıları
 
--   Modelin, nesnelerin ve ışıklandırmanın ekran görüntüleri proje dosyalarında yer almaktadır.
+![Screenshot 1](screenshots/1.png)
+![Screenshot 2](screenshots/2.png)
+![Screenshot 3](screenshots/3.png)
+![Screenshot 4](screenshots/4.png)
+![Screenshot 5](screenshots/5.png)
+![Screenshot 6](screenshots/6.png)
+![Screenshot 7](screenshots/7.png)
+![Screenshot 8](screenshots/8.png)
+![Screenshot 9](screenshots/9.png)
+
+![Rgb Mode](screenshots/rgb_mode.gif)
+
+---
+
+## Katkıda Bulunma
+
+Katkıda bulunmak isterseniz, lütfen bir pull request gönderin veya bir issue açın. Her türlü katkı ve geri bildirim memnuniyetle karşılanır.
+
+---
