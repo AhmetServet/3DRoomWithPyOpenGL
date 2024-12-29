@@ -124,6 +124,10 @@ class OpenGLWidget(QGLWidget):
         self.camera.move(direction)
         self.update()
 
+    def reset_scene(self):
+        self.preset = 0
+        self.camera.reset_position()
+
     def apply_preset1(self):
         if self.preset == 1:
             self.camera.reset_position()
