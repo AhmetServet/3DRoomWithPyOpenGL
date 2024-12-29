@@ -98,6 +98,34 @@ Bu proje, 3 boyutlu uzayda bir 3B model oluşturarak çeşitli geometrik nesnele
 
 ---
 
+## Proje Performans Ölçümü
+
+### Performans Ölçüm Adımları
+
+1. **Change Directory**
+
+    ```bash
+    cd performance
+    ```
+
+2. **Install Required Packages**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Application Profile Analysis**
+
+    ```bash
+    python analyze_profile_data.py
+    ```
+
+### Performans Ölçüm Sonuçları
+
+> **Note:** For now, we only measure the top 10 functions by total time. We will add more performance metrics in the future.
+
+![Top 10 Functions by tottime](performance/top_10_functions_tottime.png)
+
 ## Projeye Ait Ekran Çıktıları
 
 ![Screenshot 1](screenshots/1.png)
