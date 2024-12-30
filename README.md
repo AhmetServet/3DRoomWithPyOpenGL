@@ -10,9 +10,9 @@ Bu proje, 3 boyutlu uzayda bir 3B model oluşturarak çeşitli geometrik nesnele
 
 | Grup Üyeleri       | Görev Dağılımı                                             |
 | ------------------ | ---------------------------------------------------------- |
-| Ahmet Servet Polat | Proje yönetimi, odanın oluşturulması                       |
-| Kenan Koçoğlu      | Işık kaynaklarının oluşturulması, nesnelerin oluşturulması |
-| Mehmet Enes Odabaş | Nesne kaplamaları ve aydınlatma modelinin oluşturulması    |
+| Ahmet Servet Polat | Proje yönetimi, nesnelerin oluşturulması, arayüz tasarımı  |
+| Kenan Koçoğlu      | Işık kaynaklarının oluşturulması, odanın oluşturulması     |
+| Mehmet Enes Odabaş | Aydınlatma modelinin oluşturulması                         |
 
 ---
 
